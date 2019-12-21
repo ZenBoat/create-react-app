@@ -191,6 +191,11 @@ function verifyTypeScriptSetup() {
     appTsConfig.compilerOptions = {};
     firstTimeSetup = true;
   }
+  
+  if (appTsConfig.typingOptions == null) {
+    appTsConfig.typingOptions = {};
+    appTsConfig.typingOptions["enableAutoDiscovery"] = true;
+  }
 
   for (const option of Object.keys(compilerOptions)) {
     const { parsedValue, value, suggested, reason } = compilerOptions[option];
